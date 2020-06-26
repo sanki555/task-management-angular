@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+    margin: 3em;
+}
+
+.blue-snackbar {
+    background: #2196F3;
+}
+
+.dark-bg{
+    background-color: rgb(54, 54, 54);
+    color: white;
+}

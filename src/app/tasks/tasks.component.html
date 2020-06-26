@@ -1,0 +1,28 @@
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">SR</th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Created On</th>
+        <th scope="col">Modified On</th>
+        <th scope="col">status</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let task of tasks'>
+        <th scope="row">{{task.task_id}}</th>
+        <td>{{task.task_name}}</td>
+        <td>{{task.created_on | date:'dd-MM-yyyy' }}</td>
+        <td>{{task.modified_on | date:'dd-MM-yyyy' }}</td>
+        <td>{{task.status}}</td>
+        <td><button mat-raised-button style="margin-right:10px ;" (click)=updateTask(task)>edit</button>
+          <button mat-raised-button color="warn" (click)=delete(task.task_id)>delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button mat-raised-button style="margin-right:10px ;" (click)=addTask()>Add Task</button>
+  <button mat-raised-button style="margin-right:10px ;" (click)=refresh()>Refresh</button>
+</div>

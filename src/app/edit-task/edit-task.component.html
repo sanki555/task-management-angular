@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{action}}</h2>
+
+<mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Task Name</mat-label>
+        <input matInput [(ngModel)]="taskName" value="{{taskName}}">
+      </mat-form-field>
+      <br>
+      <mat-form-field *ngIf = "action == 'Edit Task'" appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select [(value)]="status">
+          <mat-option *ngFor='let drop of dropdown' value="{{drop}}">{{drop}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" (click)=Proceed() cdkFocusInitial>Submit</button>
+</mat-dialog-actions>
