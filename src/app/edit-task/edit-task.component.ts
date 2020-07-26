@@ -1,5 +1,6 @@
+import { TasksComponent } from './../tasks/tasks.component';
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { Component, OnInit, Inject } from "@angular/core";
+import { Component, OnInit, Inject, Output, EventEmitter } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { TaskManagementServiceService } from '../task-management-service.service';
 
@@ -12,12 +13,15 @@ export class EditTaskComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private taskService: TaskManagementServiceService,
+    private taskService: TaskManagementServiceService
   ) {
    this.taskName= data.task.task_name
    this.status = data.task.status
     this.action = data.action
   }
+
+
+  @Output() valueChange = new EventEmitter();
 
   updateTaskForm: FormGroup;
   dropdown = ["INITIATED", "PROCESSING", "COMPLETED"];
@@ -49,6 +53,9 @@ export class EditTaskComponent implements OnInit {
       },
       error => {
         console.log("error",error)
+      },
+      ()=>{
+        this.valueChange.emit(1);
       }
     )
   }
@@ -66,6 +73,9 @@ export class EditTaskComponent implements OnInit {
       },
       error => {
         console.log("error",error)
+      },
+      ()=>{
+        this.valueChange.emit(1);
       }
     )
   }

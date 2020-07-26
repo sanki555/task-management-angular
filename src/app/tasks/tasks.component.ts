@@ -85,6 +85,10 @@ export class TasksComponent implements OnInit {
     this.loadTask()
   }
 
+  displayCounter(count) {
+    console.log('Message received...');
+  }
+
   delete(taskId){
     this.taskService.deleteTask(taskId).subscribe(
       data => {

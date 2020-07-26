@@ -22,6 +22,10 @@ export class TaskManagementServiceService {
     return this.http.post(AppSettings.appUrl + "/login", data);
   }
 
+  register(data) {
+    return this.http.post(AppSettings.appUrl + "/register", data);
+  }
+
   update(data) {
     return this.http.post(AppSettings.appUrl + "/updateTask", data);
   }

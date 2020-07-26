@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task-management-front';
+  displayCounter(count) {
+    console.log('Message received...');
+  }
+
+
 }
+
+
